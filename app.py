@@ -1,4 +1,5 @@
 import cv2
+import os
 from utility import lessFrame, brightestSubsetMatrix, Plot
 
 stream = cv2.VideoCapture(0) #use 0 for default webcam
@@ -20,9 +21,12 @@ try:
 
         if len(co_ordinates) > 2:
             print(f"x = {co_ordinates[1]*5} , y = {co_ordinates[0]*5}")  # print the co-ordinates
-            # put further code inside this if statement
             plotFig.rt_plot(co_ordinates[1]*5, co_ordinates[0]*(-5))
-
+            # put further code inside this if statement
+            
+        key = cv2.waitKey(1) & 0xFF
+        if key == ord('s'):
+            plotFig.save_plot()
 except KeyboardInterrupt:
     print("exiting program")
 
