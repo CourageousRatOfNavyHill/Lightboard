@@ -115,6 +115,8 @@ class Plot:
     def close(self):
         plt.close(self.fig)
 
+    
+
 
 
 
